@@ -13,6 +13,14 @@
 	<a href="https://t.me/Aleksander_like">
 		<img src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
 	</a>
+    <a href="mailto:aleksievisa@gmail.com">
+		<img src="https://img.shields.io/badge/Email-blue?style=for-the-badge&logo=gmail&logoColor=white" alt="Telegram"/>
+	</a>
+</div>
+
+<div align="left">
+    <h3>🔭 I work on a freelance and opensource project</h3>
+    <h3>📑 I was trained at the Rolling Scopes School EPAM</h3>
 </div>
 
 
