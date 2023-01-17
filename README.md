@@ -15,6 +15,11 @@
 	</a>
 </div>
 
+<div style="display: flex; justify-content: space-around">
+    <div>Frontend</div>
+    <div>Backend</div>
+</div>
+
 <div align="center">
 
 ![](http://github-profile-summary-cards.vercel.app/api/cards/profile-details?username=Alex99like&theme=monokai)
