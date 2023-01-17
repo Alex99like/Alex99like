@@ -1,6 +1,6 @@
 <div id="header" align="center" >
 	<h1>Hi 👋, I'm Aleksander</h1>
-	<h3>Full Stack Developer from Republic of Belarus</h3>
+	<h3>Full Stack Developer</h3>
 </div>
 
 <div id="socials" align="center">
@@ -8,7 +8,7 @@
 		<img src="https://img.shields.io/badge/LinkedIn-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn"/>
 	</a>
 	<a href="https://www.facebook.com/profile.php?id=100041718375661">
-		<img src="https://img.shields.io/badge/Twitter-blue?style=for-the-badge&logo=twitter&logoColor=white" alt="Twitter"/>
+		<img src="https://img.shields.io/badge/Facebook-blue?style=for-the-badge&logo=facebook&logoColor=white" alt="Twitter"/>
 	</a>
 	<a href="https://t.me/Aleksander_like">
 		<img src="https://img.shields.io/badge/Telegram-blue?style=for-the-badge&logo=telegram&logoColor=white" alt="Telegram"/>
@@ -20,7 +20,7 @@
 
 <div align="left">
     <h3>🔭 I work on a freelance and opensource project</h3>
-    <h3>📑 I was trained at the Rolling Scopes School EPAM</h3>
+    <h3>📑 I have successfully completed the course (14 months) Rolling Scopes School EPAM</h3>
 </div>
 
 
