@@ -17,7 +17,6 @@ const links = [
 export const Navbar = () => {
 
   const location = useLocation()
-  console.log(location)
 
   return (
     <motion.div className={styles.navigation}

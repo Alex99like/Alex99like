@@ -32,7 +32,7 @@
         background: linear-gradient(to bottom right, #8c3196, #45044f);
         border: 7px solid $dark-bg;
         transform: translateY(-50%) scale(1.4);
-        box-shadow: -1px 1px 3px 1px #65036c;
+        box-shadow: -1px -1px 3px 1px #65036c;
         animation: animate-one .4s;
       }
 
@@ -43,11 +43,17 @@
           transform: translateY(0) scale(1);
           box-shadow: none;
         }
+        50% {
+          background: linear-gradient(to bottom right, #8c3196, #45044f);
+          border: 7px solid $dark-bg;
+          transform: translateY(-50%) scale(1.4);
+          box-shadow: none;
+        }
         100% {
           background: linear-gradient(to bottom right, #8c3196, #45044f);
           border: 7px solid $dark-bg;
           transform: translateY(-50%) scale(1.4);
-          box-shadow: -1px 1px 3px 1px #65036c;
+          box-shadow: -1px -1px 3px 1px #65036c;
         }
       }
     }
