@@ -11,11 +11,14 @@ export const Home = () => {
       <div className={styles['name-container']}>
         <div className={styles.profile}>
           <h2 className={styles.hello}><span className={styles.emoji}>Hi👋, I`am </span> FULL-STACK</h2>
-          <h2 className={styles.prof}>DEVELOPER</h2>
-          <div className={styles.tags}>
-            <span className={styles.tag}>TS</span>
-            <span className={styles.tag}>JS</span>
-          </div>
+          <h2 className={styles.prof}>
+            DEVELOPER
+            <div className={styles.tags}>
+              <span className={styles.tag}>TS</span>
+              <span className={styles.tag}>JS</span>
+            </div>  
+          </h2>
+          
         </div>
         <div className={styles['links-container']}>
           <a href={LINKED_LINK} className={styles.link}>

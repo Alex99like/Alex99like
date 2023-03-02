@@ -6,19 +6,21 @@
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  padding-top: 60px;
+  padding-top: 50px;
+  //min-width: 1250px;
+  min-height: 690px;
 
   .name-container {
     height: 100%;
     display: flex;
     align-items: center;
+    justify-content: flex-start;
     flex-direction: column;
-    padding-bottom: 100px;
 
     .name {
       margin-left: 100px;
       font-size: 50px;
-      margin-top: auto;
+      margin-top: 40px;
       margin-bottom: 20px;
       text-transform: uppercase;
 
@@ -64,8 +66,9 @@
 
     .profile {
       font-size: 36px;
-      margin-left: 60px;
+      margin-left: auto;
       position: relative;
+      min-width: 620px;
 
       .hello {
         background: linear-gradient(45deg, #64166c 33%, #5a0d76 66%, #8AA9D6);
