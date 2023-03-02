@@ -4,9 +4,10 @@ import styles from './Navbar.module.scss'
 import { FcHome, FcEngineering, FcGraduationCap, FcAbout, FcEditImage } from 'react-icons/fc'
 import cn from 'classnames'
 import { motion } from 'framer-motion'
+import { Link, useLocation } from 'react-router-dom'
 
 const links = [
-  { link: '/home', icon: FcHome },
+  { link: '/', icon: FcHome },
   { link: '/skills', icon: FcEngineering },
   { link: '/education', icon: FcGraduationCap },
   { link: '/projects', icon: FcAbout },
@@ -15,7 +16,8 @@ const links = [
 
 export const Navbar = () => {
 
-  const [active] = useState('/home')
+  const location = useLocation()
+  console.log(location)
 
   return (
     <motion.div className={styles.navigation}
@@ -25,10 +27,12 @@ export const Navbar = () => {
     >
       <ul className={styles.container}>
         {links.map(link => (
-          <li className={cn(styles.item, {
-            [styles.active]: link.link === active
+          <li key={link.link} className={cn(styles.item, {
+            [styles.active]: link.link === location.pathname
           })}>
-            <a href={link.link}>{<link.icon className={styles.icon} />}</a>
+            <Link to={link.link}>
+              {<link.icon className={styles.icon} />}
+            </Link>
           </li>
         ))}
       </ul>
