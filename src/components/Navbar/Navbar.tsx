@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useState } from 'react'
+import React from 'react'
 import styles from './Navbar.module.scss'
 import { FcHome, FcEngineering, FcGraduationCap, FcAbout, FcEditImage } from 'react-icons/fc'
 import cn from 'classnames'
