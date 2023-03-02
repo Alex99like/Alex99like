@@ -73,6 +73,7 @@
 
       .tags {
         display: flex;
+        position: absolute;
         margin-left: 15px;
         right: 5px;
         bottom: 0px;
@@ -80,6 +81,7 @@
 
         @media (max-width: 1260px) {
           font-size: 30px;
+          right: -20px;
         }
 
         @media (max-width: 920px) {
@@ -98,11 +100,24 @@
 
           &:first-child {
             background: linear-gradient(45deg, #3a166c 33%, #081b62 66%, #0a36d3);;
+            animation-duration: .5s;
+            animation-name: animate-one;
           }
 
           &:last-child {
             background: linear-gradient(45deg, #ded534 33%, #e8bd15 66%, #e48e0d);;
             transform: translate(-10px, 10px);
+            animation-duration: .8s;
+            animation-name: animate-one;
+          }    
+          
+          @keyframes animate-one {
+            0% {
+              scale: 0;
+            }
+            100% {
+              scale: 1;
+            }
           }
         }
       }
@@ -220,6 +235,7 @@
         object-fit: cover;     
         border-radius: 50%; 
         border: 7px solid $image-border;
+        animation: animate-img .5s;
 
         @media (max-width: 1260px) {
           width: 350px;
@@ -229,6 +245,15 @@
         @media (max-width: 920px) {
           width: 250px;
           height: 250px;
+        }
+
+        @keyframes animate-img {
+          0% {
+            transform: scale(0) rotate(0);
+          }
+          100% {
+            transform: scale(1) rotate(360deg);
+          }
         }
       }
 

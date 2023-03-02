@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import styles from './Navbar.module.scss'
 import { FcHome, FcEngineering, FcGraduationCap, FcAbout, FcEditImage } from 'react-icons/fc'
 import cn from 'classnames'
+import { motion } from 'framer-motion'
 
 const links = [
   { link: '/home', icon: FcHome },
@@ -17,7 +18,11 @@ export const Navbar = () => {
   const [active] = useState('/home')
 
   return (
-    <div className={styles.navigation}>
+    <motion.div className={styles.navigation}
+      initial={{ scale: 0.2, opacity: 0, y: 100 }}
+      animate={{ scale: 1, opacity: 1, y: 0 }}
+      transition={{ duration: 0.7, type: 'spring', stiffness: 400 }}
+    >
       <ul className={styles.container}>
         {links.map(link => (
           <li className={cn(styles.item, {
@@ -27,6 +32,6 @@ export const Navbar = () => {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   )
 }
