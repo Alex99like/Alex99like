@@ -107,6 +107,11 @@
           padding: 12px 10px;
         }
 
+        @media (max-width: 410px) {
+          font-size: 16px;
+          padding: 12px 10px;
+        }
+
         &:first-child {
           padding-left: 30px;  
           border-top-left-radius: 20px;
@@ -114,6 +119,10 @@
 
           @media (max-width: 590px) {
             padding-left: 20px; 
+          }
+
+          @media (max-width: 410px) {
+            font-size: 16px;
           }
         }
 
