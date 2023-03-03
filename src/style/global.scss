@@ -12,9 +12,22 @@ body {
   background: $dark-bg;  
   position: relative;
   height: 100vh;
+  overflow-x: hidden;
 }
 
 .wrapper {
   display: flex;
   justify-content: center;
+}
+
+body::-webkit-scrollbar {
+  width: 4px;               /* ширина scrollbar */
+}
+body::-webkit-scrollbar-track {
+  background: transparent;        /* цвет дорожки */
+}
+body::-webkit-scrollbar-thumb {
+  background-color: rgb(62, 64, 68);    /* цвет плашки */
+  border-radius: 20px;       /* закругления плашки */
+  /* padding вокруг плашки */
 }

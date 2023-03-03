@@ -6,7 +6,8 @@
   justify-content: center;
   align-items: center;
   padding: 50px 20px 0;
-  width: 100%;
+  width: 1370px;
+  margin: 0 auto;
   min-height: 690px;
 
   @media (max-width: 680px) {
@@ -234,7 +235,7 @@
         object-fit: cover;     
         border-radius: 50%; 
         border: 7px solid $image-border;
-        animation: animate-img .5s;
+        animation: animate-img .5s normal;
 
         @media (max-width: 1260px) {
           width: 350px;
@@ -274,7 +275,7 @@
           padding: 10px 20px;
         }
 
-        @media (max-width: 1260px) {
+        @media (max-width: 920px) {
           font-size: 12px;
           padding: 5px 10px;
         }
