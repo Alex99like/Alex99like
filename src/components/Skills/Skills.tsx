@@ -64,18 +64,20 @@ const Skills = () => {
               transition={{ delay: idx / 10, type: 'spring', stiffness: 300 }}
              //exit={{ opacity: 0 }}
             >
-              <span className={cn(styles.type, {
-                [styles.style]: el.type === 'Style',
-                [styles.framework]: el.type === 'Framework',
-                [styles.lang]: el.type === 'Language',
-                [styles.lib]: el.type === 'UI Lib',
-                [styles.tool]: el.type === 'Tool',
-                [styles.api]: el.type === 'API',
-                [styles.db]: el.type === 'DB',
-              })}>{el.type}</span>
               <span className={styles.project}><span className={styles.count}>{el.projects}</span> projects</span>
-              {el.icon && <el.icon className={styles.icon} />}
-              <span className={styles.name}>{el.name}</span>
+              <div className={styles.wrapper}>
+                <span className={cn(styles.type, {
+                  [styles.style]: el.type === 'Style',
+                  [styles.framework]: el.type === 'Framework',
+                  [styles.lang]: el.type === 'Language',
+                  [styles.lib]: el.type === 'UI Lib',
+                  [styles.tool]: el.type === 'Tool',
+                  [styles.api]: el.type === 'API',
+                  [styles.db]: el.type === 'DB',
+                })}>{el.type}</span>
+                {el.icon && <el.icon className={styles.icon} />}
+                <span>{el.name}</span>
+              </div>
             </motion.div>
           ))}
         </div>  
