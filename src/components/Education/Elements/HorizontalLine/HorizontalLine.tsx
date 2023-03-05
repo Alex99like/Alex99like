@@ -7,11 +7,15 @@ interface LineProps {
   width: string;
   delay: number
   direction: 'left' | 'right'
+  relative?: { count: number, left: number }
 }
 
-export const HorizontalLine: FC<PropsWithChildren<LineProps>> = ({ top, width, delay, direction, children }) => {
+export const HorizontalLine: FC<PropsWithChildren<LineProps>> = ({ top, width, delay, direction, children, relative }) => {
   return (
-    <div className={styles[`${direction}-line`]} style={{ top: top }}>
+    <div 
+      className={styles[`${direction}-line`]} 
+      style={{ top: top, width: `${relative?.count}px`, [direction]: `${relative?.left}px` }}
+    >
         <motion.span className={styles.start} 
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
