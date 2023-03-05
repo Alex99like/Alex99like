@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion'
 import styles from './HorizontalLine.module.scss'
-import React, { FC } from 'react'
-import cn from 'classnames'
+import React, { FC, PropsWithChildren } from 'react'
 
 interface LineProps {
   top: string;
@@ -10,7 +9,7 @@ interface LineProps {
   direction: 'left' | 'right'
 }
 
-export const HorizontalLine: FC<LineProps> = ({ top, width, delay, direction }) => {
+export const HorizontalLine: FC<PropsWithChildren<LineProps>> = ({ top, width, delay, direction, children }) => {
   return (
     <div className={styles[`${direction}-line`]} style={{ top: top }}>
         <motion.span className={styles.start} 
@@ -18,7 +17,7 @@ export const HorizontalLine: FC<LineProps> = ({ top, width, delay, direction }) 
           animate={{ scale: 1 }}
           transition={{ delay: delay, type: 'spring' }}
         />
-        <motion.span className={styles.line}
+        <motion.span style={{ width: width }} className={styles.line}
           initial={{ width: 0 }}
           animate={{ width: width }}
           transition={{ duration: 2, delay: delay + 0.8 }}
@@ -28,6 +27,7 @@ export const HorizontalLine: FC<LineProps> = ({ top, width, delay, direction }) 
           animate={{ scale: 1 }}
           transition={{ delay: delay, type: 'spring' }}
         />
+        {children}
       </div>
   )
 }

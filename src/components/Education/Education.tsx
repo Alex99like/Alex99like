@@ -28,7 +28,7 @@ export const Education = () => {
       </div>
       <div className={styles.wrapper}>
         <VerticalEducation />
-        <VerticalEducation />
+        {/* <VerticalEducation /> */}
       </div>
     </motion.section>
   )
