@@ -36,16 +36,16 @@ export const Home = () => {
         </div>
         <div className={styles['links-container']}>
           <motion.a href={LINKED_LINK} className={styles.link}
-            initial={{ opacity: 0, scale: 0, y: 60 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0, x: 60 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ type: 'spring', stiffness: 300, delay: 0.3 }}
           >
             <img src={LinkedImage} className={styles.image} alt='' />
             Linkedin
           </motion.a>
           <motion.a href={GITHUB_LINK} className={styles.link}
-            initial={{ opacity: 0, scale: 0, y: 60 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0, x: 60 }}
+            animate={{ opacity: 1, scale: 1, x: 0 }}
             transition={{ type: 'spring', stiffness: 300, delay: 0.6 }}
           >
             <img src={GithubImage} className={styles.image} alt='' />
