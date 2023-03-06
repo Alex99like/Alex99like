@@ -1,15 +1,21 @@
 import React, { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { FcEngineering, FcGraduationCap } from 'react-icons/fc'
 import styles from './Education.module.scss'
 import { VerticalEducation } from './Elements/VerticalEducation'
 import { Experiences } from './Elements/Experiences'
 import { SwitchButtons } from './Elements/Buttons/SwitchButtons'
+import { Modal } from '../../shared/Modal/Modal'
 
 
 export const Education = () => {
   const [mobile, setMobile] = useState(false)
   const [switchBtn, setSwitchBtn] = useState<'education' | 'experience'>('education')
+  const [activeModal, setActiveModal] = useState(true)
+
+  const actionModal = (action: 'open' | 'close') => {
+    setActiveModal(action === 'open' ? true : false)
+  }
 
   const handlerSwitch = (value: 'education' | 'experience') => {
     setSwitchBtn(value)
@@ -32,6 +38,11 @@ export const Education = () => {
   }, [])
 
   return (
+    <>
+    <AnimatePresence>
+      {activeModal && <Modal closeModal={actionModal} />}
+    </AnimatePresence>
+    
     <motion.section className={styles.container}>
       <div className={styles.title}>
         <motion.h2
@@ -53,17 +64,19 @@ export const Education = () => {
       <div className={styles.wrapper}>
         {mobile ? (
           <>
-            <VerticalEducation />
+            <VerticalEducation callModal={actionModal} />
             <Experiences />
           </>
         ) : (
           <>
-            {switchBtn === 'education' && <VerticalEducation />}
+            {switchBtn === 'education' && <VerticalEducation callModal={actionModal} />}
             {switchBtn === 'experience' && <Experiences />}
             <SwitchButtons handler={handlerSwitch} switchBtn={switchBtn} />
           </>
         )}
       </div>
     </motion.section>
+    </>
+    
   )
 }

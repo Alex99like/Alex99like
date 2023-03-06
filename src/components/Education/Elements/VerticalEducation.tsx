@@ -1,10 +1,14 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, FC } from 'react'
 import { calcDate } from '../../../utils/calcData'
 import { motion } from 'framer-motion'
 import styles from './VerticalEducation.module.scss'
 import { HorizontalLine } from './HorizontalLine/HorizontalLine'
 import { ItemEducation } from './ItemEducation/ItemEducation'
 import { education } from '../../../data/education'
+
+interface VerticalProp {
+  callModal: (val: 'open' | 'close') => void;
+}
 
 const startDate = '03-22-2021'
 
@@ -16,7 +20,7 @@ const setting = {
   five: { delay: 4.1, width: 65, top: 79, direction: 'left', education: 'rssNode',relative: { width: 120, distance: 82 } },
 }
 
-export const VerticalEducation = () => {
+export const VerticalEducation: FC<VerticalProp> = ({ callModal }) => {
   const [date, setDate] = useState(calcDate(startDate))
  
   useEffect(() => {
@@ -31,7 +35,7 @@ export const VerticalEducation = () => {
     <div className={styles.container}>
       {Object.values(setting).map(({ delay, direction, relative, top, width, education: educationItem }) => (
         <HorizontalLine relative={relative} top={`${top}%`} width={`${width}%`} delay={delay} direction={direction} key={educationItem}>
-          <ItemEducation delay={delay} item={education[educationItem]} direction={direction} />
+          <ItemEducation delay={delay} item={education[educationItem]} direction={direction} callModal={callModal} />
         </HorizontalLine>
       ))}
 

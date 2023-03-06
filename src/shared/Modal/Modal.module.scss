@@ -1,5 +1,28 @@
+@import '../../style/contants.scss';
+
 .container {
   width: 100vw;
   height: 100vh;
-  background: #fff;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom right, #2b072e8b, #2e063479);
+  z-index: 1000;
+
+  .modal {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    width: 500px;
+    height: 400px;
+    background: $dark-bg;
+    border-radius: 20px;
+
+    box-shadow: -3px 3px 3px 2px #5d046ebe;
+
+    &::after {
+      background: linear-gradient(to bottom right, #2b072e8b, #2e063479);
+    }
+  }
 }

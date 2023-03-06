@@ -4,6 +4,7 @@ import { motion } from 'framer-motion'
 import cn from 'classnames'
 
 interface ItemEducationProps {
+    callModal: (val: 'open' | 'close') => void;
     delay: number
     item: {
       name: string
@@ -13,12 +14,13 @@ interface ItemEducationProps {
     direction: string
 }
 
-export const ItemEducation: FC<ItemEducationProps> = ({ delay, item, direction }) => {
+export const ItemEducation: FC<ItemEducationProps> = ({ delay, item, direction, callModal }) => {
   return (
     <motion.div className={cn(styles.container, styles[direction], styles[item.class])}
       initial={{ x: direction === 'left' ? 50 : -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: delay + 2.5, type: 'spring' }}
+      onClick={() => callModal('open')}
     >
       <span className={styles.date}>{item.time} MONTH</span>
       <motion.h3 className={styles.title}
