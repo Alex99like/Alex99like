@@ -9,7 +9,9 @@ import GithubImage from '../../assets/img/github.svg'
 
 export const Home = () => {
   return (
-    <motion.section className={styles.container} layout>
+    <motion.section className={styles.container}
+      
+    >
       <div className={styles['name-container']}>
         <div className={styles.profile}>
           <motion.h2 className={styles.hello}

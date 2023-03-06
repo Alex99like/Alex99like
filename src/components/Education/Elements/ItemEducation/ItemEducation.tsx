@@ -10,7 +10,7 @@ interface ItemEducationProps {
       time: number
       class: string
     },
-    direction: 'left' | 'right'
+    direction: string
 }
 
 export const ItemEducation: FC<ItemEducationProps> = ({ delay, item, direction }) => {

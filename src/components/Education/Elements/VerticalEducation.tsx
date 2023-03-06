@@ -9,11 +9,11 @@ import { education } from '../../../data/education'
 const startDate = '03-22-2021'
 
 const setting = {
-  one: { delay: 1.8, width: 76, top: 17, relative: { count: 130, left: 73 } },
-  two: { delay: 2.1, width: 55, top: 32, relative: { count: 100, left: 102 } },
-  three: { delay: 2.8, width: 76, top: 48, relative: { count: 130, left: 73 } },
-  four: { delay: 3.5, width: 65, top: 64, relative: { count: 120, left: 80 } },
-  five: { delay: 4.1, width: 65, top: 79, relative: { count: 120, left: 82 } },
+  one: { delay: 1.8, width: 76, top: 17, direction: 'left', education: 'JavaRush', relative: { width: 130, distance: 73 } },
+  two: { delay: 2.1, width: 55, top: 32, direction: 'right', education: 'rssS1',relative: { width: 100, distance: 102 } },
+  three: { delay: 2.8, width: 76, top: 48, direction: 'left', education: 'rssS2',relative: { width: 130, distance: 73 } },
+  four: { delay: 3.5, width: 65, top: 64, direction: 'right', education: 'rssReact',relative: { width: 120, distance: 80 } },
+  five: { delay: 4.1, width: 65, top: 79, direction: 'left', education: 'rssNode',relative: { width: 120, distance: 82 } },
 }
 
 export const VerticalEducation = () => {
@@ -29,7 +29,12 @@ export const VerticalEducation = () => {
 
   return (
     <div className={styles.container}>
-      <HorizontalLine relative={setting.one.relative} top={`${setting.one.top}%`} width={`${setting.one.width}%`} delay={setting.one.delay} direction={'left'}>
+      {Object.values(setting).map(({ delay, direction, relative, top, width, education: educationItem }) => (
+        <HorizontalLine relative={relative} top={`${top}%`} width={`${width}%`} delay={delay} direction={direction}>
+          <ItemEducation delay={delay} item={education[educationItem]} direction={direction} />
+        </HorizontalLine>
+      ))}
+      {/* <HorizontalLine relative={setting.one.relative} top={`${setting.one.top}%`} width={`${setting.one.width}%`} delay={setting.one.delay} direction={'left'}>
         <ItemEducation delay={setting.one.delay} item={education.JavaRush} direction='left' />
       </HorizontalLine>
       <HorizontalLine relative={setting.two.relative} top={`${setting.two.top}%`} width={`${setting.two.width}%`} delay={setting.two.delay} direction={'right'}>
@@ -43,7 +48,7 @@ export const VerticalEducation = () => {
       </HorizontalLine>
       <HorizontalLine relative={setting.five.relative} top={`${setting.five.top}%`} width={`${setting.five.width}%`} delay={setting.five.delay} direction={'left'}>
         <ItemEducation delay={setting.five.delay} item={education.rssNode} direction='left' />
-      </HorizontalLine>
+      </HorizontalLine> */}
       <div className={styles.mainLine}>
         <span className={styles.start}>{startDate.replaceAll('-', '.')}</span>
         <motion.span className={styles.line}

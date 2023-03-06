@@ -4,8 +4,9 @@ import { FcEngineering, FcGraduationCap } from 'react-icons/fc'
 import styles from './Education.module.scss'
 import { calcDate } from '../../utils/calcData'
 import { VerticalEducation } from './Elements/VerticalEducation'
+import { Experiences } from './Elements/Experiences'
 
-const startDate = '03-22-2021'
+const startDate = '02-18-2022'
 
 export const Education = () => {
 
@@ -13,10 +14,10 @@ export const Education = () => {
 
   useEffect(() => {
     if (date && calcDate(date)) {
-    setTimeout(() => {
-      setDate(calcDate(date))
-    }, 60)
-  }
+      setTimeout(() => {
+        setDate(calcDate(date))
+      }, 120)
+    }
   }, [date])
 
   return (
@@ -28,7 +29,7 @@ export const Education = () => {
       </div>
       <div className={styles.wrapper}>
         <VerticalEducation />
-        {/* <VerticalEducation /> */}
+        <Experiences />
       </div>
     </motion.section>
   )

@@ -1,4 +1,10 @@
-export const education = {
+interface IEducation {
+  name: string
+  time: number
+  class: string
+}
+
+export const education: Record<string, IEducation> = {
   JavaRush: {
     name: 'JavaRush : JAVA Core',
     time: 8,

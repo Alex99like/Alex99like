@@ -1,6 +1,6 @@
 const day = 86400000;
 const month = 2629746000;
-const week = month / 4
+const week = month / 3
 
 const parseDate = (date: number) => {
   const today = new Date(date)
