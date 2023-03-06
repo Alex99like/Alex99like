@@ -31,7 +31,7 @@ export const Experiences = () => {
   return (
     <div className={styles.container}>
       {Object.values(setting).map(({ relative, top, width, delay, direction, experience: experienceItem }) => (
-        <HorizontalLine relative={relative} top={`${top}%`} width={`${width}%`} delay={delay} direction={direction}>
+        <HorizontalLine relative={relative} top={`${top}%`} width={`${width}%`} delay={delay} direction={direction} key={experienceItem}>
           <ExperiencesItem delay={delay} direction={direction} item={experiences[experienceItem]} />
         </HorizontalLine>
       ))}
