@@ -6,6 +6,7 @@ import { VerticalEducation } from './Elements/VerticalEducation'
 import { Experiences } from './Elements/Experiences'
 import { SwitchButtons } from './Elements/Buttons/SwitchButtons'
 import { Modal } from '../../shared/Modal/Modal'
+import { AppContextProvider } from '../../providers/EducationProvider'
 
 
 export const Education = () => {
@@ -38,7 +39,7 @@ export const Education = () => {
   }, [])
 
   return (
-    <>
+    <AppContextProvider>
     <AnimatePresence>
       {activeModal && <Modal closeModal={actionModal} />}
     </AnimatePresence>
@@ -76,7 +77,7 @@ export const Education = () => {
         )}
       </div>
     </motion.section>
-    </>
+    </AppContextProvider>
     
   )
 }

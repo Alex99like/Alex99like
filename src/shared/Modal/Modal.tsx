@@ -1,12 +1,14 @@
 import React, { FC } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Modal.module.scss'
+import { useSelectorAppContextProvider } from '../../providers/EducationProvider'
 
 interface ModalProp {
   closeModal: (value: 'close' | 'open') => void
 }
 
 export const Modal: FC<ModalProp> = ({ closeModal }) => {
+  const { item } = useSelectorAppContextProvider()
 
   return (
     <motion.div className={styles.container}
@@ -23,7 +25,7 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
         transition={{  type: 'spring', stiffness: 100 }}
         onClick={(e) => {e.stopPropagation()}}
       >
-
+        {item && <img src={item.modal.image} alt=''/>}
       </motion.div>
     </motion.div>
   )

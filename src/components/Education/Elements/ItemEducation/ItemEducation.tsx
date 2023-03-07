@@ -2,25 +2,30 @@ import React, { FC } from 'react'
 import styles from './ItemEducation.module.scss'
 import { motion } from 'framer-motion'
 import cn from 'classnames'
+import { useSelectorAppContextProvider } from '../../../../providers/EducationProvider';
+import { IEducation } from '../../../../data/education';
 
 interface ItemEducationProps {
     callModal: (val: 'open' | 'close') => void;
     delay: number
-    item: {
-      name: string
-      time: number
-      class: string
-    },
+    item: IEducation
     direction: string
 }
 
 export const ItemEducation: FC<ItemEducationProps> = ({ delay, item, direction, callModal }) => {
+  const { setContent } = useSelectorAppContextProvider()
+
+  const openModel = () => {
+    setContent && setContent(item)
+    callModal('open')
+  }
+
   return (
     <motion.div className={cn(styles.container, styles[direction], styles[item.class])}
       initial={{ x: direction === 'left' ? 50 : -50, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ delay: delay + 2.5, type: 'spring' }}
-      onClick={() => callModal('open')}
+      onClick={openModel}
     >
       <span className={styles.date}>{item.time} MONTH</span>
       <motion.h3 className={styles.title}
