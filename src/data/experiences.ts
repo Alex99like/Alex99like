@@ -22,7 +22,7 @@ export const experiences: Record<string, IExperiences> = {
   },
   rss: { 
     company: 'RS School',
-    jobTitle: 'Student',
+    jobTitle: 'INTERN',
     class: 'rss'
   },
   freelanceTwo: { 

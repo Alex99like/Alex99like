@@ -18,11 +18,326 @@
     height: 400px;
     background: $dark-bg;
     border-radius: 20px;
+    padding: 20px;
 
     box-shadow: -3px 3px 3px 2px #5d046ebe;
+
+    @media (max-width: 520px) {
+      padding-top: 70px;
+      height: 550px;
+      width: 370px;
+    }
 
     &::after {
       background: linear-gradient(to bottom right, #2b072e8b, #2e063479);
     }
+
+    .title {
+      position: absolute;
+      transform: rotate(90deg) translate(170px, 120px);
+      color: #fff;
+      text-shadow: 5px 5px 0px #931ad9be;
+      left: 0;
+      top: 0;
+      font-size: 55px;
+
+      &.javarush {
+        transform: rotate(90deg) translate(170px, 105px);
+      }
+
+      @media (max-width: 520px) {
+        transform: rotate(0) translate(20px, 0px);
+
+        &.javarush {
+          transform: rotate(0) translate(40px, 0px);
+        }
+      }
+    }
+
+    .tags {
+      position: relative;
+      margin-left: 50px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: auto;
+
+      @media (max-width: 520px) {
+        margin-left: 0;
+      }
+
+      .tag {
+        color: #fff;
+        text-shadow: 0 0 2px black;
+        font-weight: 700;
+        padding: 0px 5px;
+        border-radius: 5px;
+      }
+    }
+
+    .image {
+      margin-left: 50px;
+      width: 100;
+      display: flex;
+      
+
+      @media (max-width: 520px) {
+        margin-left: 0;
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      img {
+        width: 60%;
+        border-radius: 10px;
+        box-shadow: -1px 1px 2px #eda702;
+        transition: .2s;
+        z-index: 6;
+        cursor: pointer;
+
+        &:hover {
+          transform: scale(1.8);
+        }
+      }
+
+      .performance {
+        font-size: 24px;
+        margin-left: 10px;
+        text-align: center;
+
+        @media (max-width: 520px) {
+          text-align: center;
+        }
+        
+        h4 {
+          color: #fff;
+        }
+
+        h3 {
+          margin-top: 15px;
+          font-size: 26px;
+          transform: scale(1.1);
+          color: #fff;
+          text-shadow: 2px 2px 1px #e6941a;
+
+          @media (max-width: 520px) {
+            margin-top: 0;
+          }
+        }
+      }
+    }
+
+    .description {
+      margin-left: 50px;
+      margin-top: 5px;
+      color: #fff;
+      border-radius: 10px;
+      padding: 5px 10px;
+      box-shadow: -1px 2px 1px 1px #cf10dc4b;
+
+      @media (max-width: 520px) {
+        margin-left: 0;
+      }
+    }
+  }
+}
+
+.tag {
+
+  &.java-syntax {
+    background: linear-gradient(to bottom right, #ff4d00cc, #e49310d0);
+  }
+
+  &.java-core {
+    background: linear-gradient(to bottom right, #ff8c00cc, #e4e010d0);
+  }
+
+  &.java-multithreading {
+    background: linear-gradient(to bottom right, #ff8c00d9, #e4e010d0);
+  }
+
+  &.java-collections {
+    background: linear-gradient(to bottom right, #ff5e00cc, #109de4d0);
+  }
+
+  &.java-syntax {
+    background: linear-gradient(to bottom right, #ff4d00cc, #e49310d0);
+  }
+
+  &.javascript {
+    background: linear-gradient(to bottom right, #eeff00cc, #e4ba10d0);
+  }
+
+  &.scss {
+    background: linear-gradient(to bottom right, #ff00eecc, #7e0880d0);
+  }
+
+  &.typescript {
+    background: linear-gradient(to bottom right, #454bffe3, #0e028bd0);
+  }
+
+  &.object-oriented-programming {
+    background: linear-gradient(to bottom right, #ec282be3, #177bdfd0);
+  }
+
+  &.webpack {
+    background: linear-gradient(to bottom right, #454bffe3, #0e028bd0);
+  }
+
+  &.kanban {
+    background: linear-gradient(to bottom right, #45b5ffe3, #0e0384d0);
+  }
+
+  &.scrum {
+    background: linear-gradient(to bottom right, #7045ffe3, #036a84d0);
+  }
+
+  &.algorithms {
+    background: linear-gradient(to bottom right, #e67b08e3, #840316d0);
+  }
+
+  &.data-structure {
+    background: linear-gradient(to bottom right, #e60808e3, #dfc606d0);
+  }
+
+  &.web-api {
+    background: linear-gradient(to bottom right, #e60808e3, #dfc606d0);
+  }
+
+  &.design-patterns {
+    background: linear-gradient(to bottom right, #9108e6e3, #06bfdfd0);
+  }
+
+  ///
+  
+  &.git {
+    background: linear-gradient(to bottom right, #e68608e3, #df9a06d0);
+  }
+
+  &.html {
+    background: linear-gradient(to bottom right, #e61708e3, #df9a06d0);
+  }
+
+  &.css {
+    background: linear-gradient(to bottom right, #0840e6e3, #38096dd0);
+  }
+
+  &.css-flex {
+    background: linear-gradient(to bottom right, #7e08e6e3, #6d0965d0);
+  }
+
+  &.css-grid {
+    background: linear-gradient(to bottom right, #cc08e6e3, #0e096dd0);
+  }
+
+  &.figma {
+    background: linear-gradient(to bottom right, #08e6e2e3, #e90f0fd0);
+  }
+
+  &.adaptive-layout {
+    background: linear-gradient(to bottom right, #e6087be3, #096d6dd0);
+  }
+
+  &.basic-javascript {
+    background: linear-gradient(to bottom right, #e6db08e3, #6d4509d0);
+  }
+
+  &.dom-api {
+    background: linear-gradient(to bottom right, #e66c08e3, #2c096dd0);
+  }
+
+  &.dom-events {
+    background: linear-gradient(to bottom right, #e64708e3, #6d6809d0);
+  }
+  /////
+  
+  &.react {
+    background: linear-gradient(to bottom right, #1308e6e3, #09606dd0);
+  }
+
+  &.redux {
+    background: linear-gradient(to bottom right, #c108e6e3, #4c084ed0);
+  }
+
+  &.redux-toolkit {
+    background: linear-gradient(to bottom right, #c508e6e3, #d827cf7d);
+  }
+
+  &.react-hooks-form {
+    background: linear-gradient(to bottom right, #ab08e6e3, #b21493d0);
+  }
+
+  &.react-router-dom {
+    background: linear-gradient(to bottom right, #716676e3, #b7b7aed0);
+  }
+
+  &.csr {
+    background: linear-gradient(to bottom right, #aaa5ace3, #2b2229d0);
+  }
+
+  &.ssr {
+    background: linear-gradient(to bottom right, #4a434be3, #a8afbcd0);
+  }
+
+  &.ssg {
+    background: linear-gradient(to bottom right, #9e96a1e3, #181117d0);
+  }
+
+  &.react-testing-library {
+    background: linear-gradient(to bottom right, #692183e3, #650657d0);
+  }
+
+  &.e2e-test {
+    background: linear-gradient(to bottom right, #b06a15e3, #a0a000d0);
+  }
+
+  &.solid {
+    background: linear-gradient(to bottom right, #ecaf06e3, #ca721fd0);
+  }
+
+  ////
+  
+  &.node {
+    background: linear-gradient(to bottom right, #56ec06e3, #2e7c0ad0);
+  }
+
+  &.websocket{
+    background: linear-gradient(to bottom right, #830a7de3, #b01fcad0);
+  }
+
+  &.nutjs {
+    background: linear-gradient(to bottom right, #ecaf06e3, #ca721fd0);
+  }
+
+  &.fastify {
+    background: linear-gradient(to bottom right, #af06ece3, #460658d0);
+  }
+
+  &.rest {
+    background: linear-gradient(to bottom right, #3c06ece3, #911fcad0);
+  }
+
+  &.graphql {
+    background: linear-gradient(to bottom right, #a306ece3, #c11fcad0);
+  }
+
+  &.typeorm {
+    background: linear-gradient(to bottom right, #0662ece3, #2a107dd0);
+  }
+
+  &.postgresql {
+    background: linear-gradient(to bottom right, #06c6ece3, #721fcad0);
+  }
+
+  &.nestjs {
+    background: linear-gradient(to bottom right, #ec0606e3, #720808d0);
+  }
+
+  &.model-view-controller {
+    background: linear-gradient(to bottom right, #ec0606e3, #720808d0);
+  }
+
+  &.docker {
+    background: linear-gradient(to bottom right, #5306ece3, #1c0c77d0);
   }
 }

@@ -2,9 +2,20 @@ import React, { FC } from 'react'
 import { motion } from 'framer-motion'
 import styles from './Modal.module.scss'
 import { useSelectorAppContextProvider } from '../../providers/EducationProvider'
+import cn from 'classnames'
+import { IEducation } from '../../data/education'
+import { IExperiences } from '../../data/experiences'
 
 interface ModalProp {
   closeModal: (value: 'close' | 'open') => void
+}
+
+const isEducation = (item: IEducation | IExperiences): item is IEducation => {
+  if ('company' in item) {
+    return false
+  } else {
+    return true
+  }
 }
 
 export const Modal: FC<ModalProp> = ({ closeModal }) => {
@@ -16,7 +27,6 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
       animate={{ opacity: 1 }}
       onClick={() => closeModal('close')}
       exit={{ opacity: 0 }}
-      //transition={{ duration: 0.3 }}
     >
       <motion.div className={styles.modal}
         initial={{ scale: 0, y: 300 }}
@@ -25,7 +35,32 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
         transition={{  type: 'spring', stiffness: 100 }}
         onClick={(e) => {e.stopPropagation()}}
       >
-        {item && <img src={item.modal.image} alt=''/>}
+        {item && isEducation(item) ? (
+          <>
+            <h3 className={cn(styles.title, styles[item.class])}>{item.modal.title}</h3>
+            <div className={styles.image}>
+              <img src={item.modal.image} alt={''} />
+              <div className={styles.performance}>
+                <h4>My Academic Performance</h4>
+                <h3>{item.modal.performance}</h3>
+              </div>
+            </div>
+            <p className={styles.description}>
+              {item.modal.description}
+            </p>
+            <div className={styles.tags}>
+              {item.modal.skills.map((tag) => (
+                <span className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</span>
+              ))}
+            </div>
+          </>
+        ) : (
+          <>
+            <div>
+              <h2>{item?.jobTitle}</h2>
+            </div>
+          </>
+        )}
       </motion.div>
     </motion.div>
   )

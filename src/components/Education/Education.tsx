@@ -12,7 +12,7 @@ import { AppContextProvider } from '../../providers/EducationProvider'
 export const Education = () => {
   const [mobile, setMobile] = useState(false)
   const [switchBtn, setSwitchBtn] = useState<'education' | 'experience'>('education')
-  const [activeModal, setActiveModal] = useState(true)
+  const [activeModal, setActiveModal] = useState(false)
 
   const actionModal = (action: 'open' | 'close') => {
     setActiveModal(action === 'open' ? true : false)
