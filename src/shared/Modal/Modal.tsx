@@ -56,11 +56,31 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
           </>
         ) : (
           <>
-            <div>
-              <h2>{item?.jobTitle}</h2>
+            <div className={styles['exp-container']}>
+              <h2 className={cn(styles['exp-title'], styles[item!.class])}>
+                {item?.company}
+              </h2>
+              <div className={styles.data}>
+                <div className={styles.wrap}>
+                <h3 className={styles.position}>POSITION: </h3><span className={styles.span}>{item?.jobTitle}</span>
+                </div>
+                <div className={styles.wrap}>
+                  <h3 className={styles.working}>Working Hours: </h3><span className={styles.span}>{item?.modal.jobTime}</span>
+                </div>
+              </div>
+              <p className={styles['exp-description']}>
+                {item?.modal.description}
+              </p>
+              <div className={styles['exp-tags']}>
+                {item?.modal.tags.map((tag) => (
+                  <span className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</span>
+                ))}
+              </div>
             </div>
           </>
         )}
+      <button onClick={() => closeModal('close')} className={styles.close}>CLOSE</button>
+
       </motion.div>
     </motion.div>
   )

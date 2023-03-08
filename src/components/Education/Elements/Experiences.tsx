@@ -1,10 +1,14 @@
 import { motion } from 'framer-motion'
-import React, { useEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { experiences } from '../../../data/experiences'
 import { calcDate } from '../../../utils/calcData'
 import styles from './Experiences.module.scss'
 import { ExperiencesItem } from './ExperiencesItem/ExperiencesItem'
 import { HorizontalLine } from './HorizontalLine/HorizontalLine'
+
+interface ExperiencesProp {
+  callModal: (val: 'open' | 'close') => void;
+}
 
 const setting = {
   one: { delay: 1.8, width: 100, top: 13, direction: 'left', experience: 'nursoft', relative: { width: 120, distance: 83 } },
@@ -17,7 +21,7 @@ const setting = {
 
 const startDate = '02-25-2022'
 
-export const Experiences = () => {
+export const Experiences: FC<ExperiencesProp> = ({ callModal }) => {
   const [date, setDate] = useState(calcDate(startDate))
  
   useEffect(() => {
@@ -32,7 +36,7 @@ export const Experiences = () => {
     <div className={styles.container}>
       {Object.values(setting).map(({ relative, top, width, delay, direction, experience: experienceItem }) => (
         <HorizontalLine relative={relative} top={`${top}%`} width={`${width}%`} delay={delay} direction={direction} key={experienceItem}>
-          <ExperiencesItem delay={delay} direction={direction} item={experiences[experienceItem]} />
+          <ExperiencesItem callModal={callModal} delay={delay} direction={direction} item={experiences[experienceItem]} />
         </HorizontalLine>
       ))}
 

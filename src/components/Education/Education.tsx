@@ -66,12 +66,12 @@ export const Education = () => {
         {mobile ? (
           <>
             <VerticalEducation callModal={actionModal} />
-            <Experiences />
+            <Experiences callModal={actionModal} />
           </>
         ) : (
           <>
             {switchBtn === 'education' && <VerticalEducation callModal={actionModal} />}
-            {switchBtn === 'experience' && <Experiences />}
+            {switchBtn === 'experience' && <Experiences callModal={actionModal} />}
             <SwitchButtons handler={handlerSwitch} switchBtn={switchBtn} />
           </>
         )}

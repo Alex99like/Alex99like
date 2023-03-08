@@ -13,6 +13,7 @@
   .modal {
     display: flex;
     position: relative;
+    top: -60px;
     flex-direction: column;
     width: 500px;
     height: 400px;
@@ -21,6 +22,27 @@
     padding: 20px;
 
     box-shadow: -3px 3px 3px 2px #5d046ebe;
+
+    .close {
+      position: absolute;
+      width: 50%;
+      left: 25%;
+      height: 50px;
+      font-size: 40px;
+      font-weight: 900;
+      border-radius: 20px;
+
+      bottom: -60px;
+
+      background: $dark-bg;
+
+      color: #fff;
+      text-shadow: -3px 3px 2px #be12e1;
+
+      border: none;
+      box-shadow: -2px 2px 2px 2px #820f99c7;
+      cursor: pointer;
+    }
 
     @media (max-width: 520px) {
       padding-top: 70px;
@@ -137,6 +159,101 @@
 
       @media (max-width: 520px) {
         margin-left: 0;
+      }
+    }
+  }
+
+  .exp-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 520px) {
+      justify-content: center;
+    }
+
+    .exp-title {
+      font-size: 45px;
+      color: #fff;
+      transform: scale(1.1) translateY(-10px) rotate(5deg);
+
+      &.nursoft { text-shadow: 4px 4px 0px  #350b96c0; }
+      &.freelance { text-shadow: 4px 4px 0px  #0fb0c6dd; }
+      &.freelance-two { text-shadow: 4px 4px 0px  #0fb0c6dd; }
+      &.rss { text-shadow: 4px 4px 0px  #e1d717c0; }
+      &.freshberry { text-shadow: 4px 4px 0px  #d903c3c0; }
+      &.realtor { text-shadow: 4px 4px 0px  #c00606f9; }
+    }
+
+    .data {
+      color: #fff;
+      position: relative;
+      transform: rotate(2deg);
+
+      .wrap {
+        display: flex;
+        align-items: flex-start;
+
+        @media (max-width: 520px) {
+          align-items: center;
+
+          &:last-child {
+            justify-content: center;
+            
+            flex-direction: column;
+          }
+        }
+      }
+
+      
+      .span {
+        margin-left: 7px;
+        font-size: 20px;
+        font-weight: 900;
+        background: linear-gradient(45deg, #5e149e 33%, #9032e1 66%, #8AA9D6);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: #360b43;
+      }
+
+      .position {
+        font-size: 20px;
+        font-weight: 900;
+        text-shadow: 2px 2px 0px #5b05ac;
+
+        @media (max-width: 520px) {
+          
+        }
+      }
+
+      .working {
+        font-weight: 900;
+        font-size: 20px;
+        text-shadow: 2px 2px 0px #5b05ac;
+
+        
+      }
+    }
+
+    .exp-description {
+      margin-top: 30px;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      box-shadow: -2px 2px 2px 2px #640384d0;
+    }
+
+    .exp-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 30px;
+
+      .tag {
+        padding: 3px 5px;
+        border-radius: 5px;
+        color: #fff;
+        font-weight: 700;
       }
     }
   }
@@ -339,5 +456,62 @@
 
   &.docker {
     background: linear-gradient(to bottom right, #5306ece3, #1c0c77d0);
+  }
+
+  //////////////
+  &.core-js {
+    background: linear-gradient(to bottom right, #e0ec06e3, #1c770cd0);
+  }
+
+  &.anime-js {
+    background: linear-gradient(to bottom right, #7906ece3, #1c770cd0);
+  }
+
+  &.velocity-js {
+    background: linear-gradient(to bottom right, #7906ece3, #0c6e77d0);
+  }
+
+  &.vite {
+    background: linear-gradient(to bottom right, #1106ece3, #eadc16d0);
+  }
+
+  &.bootstrap {
+    background: linear-gradient(to bottom right, #1106ece3, #1ad6cdd0);
+  }
+
+  &.react-select {
+    background: linear-gradient(to bottom right, #17118ce3, #8716ead0);
+  }
+
+  &.react-spinner {
+    background: linear-gradient(to bottom right, #6d06ece3, #1680ead0);
+  }
+
+  &.chartjs {
+    background: linear-gradient(to bottom right, #1106ece3, #eadc16d0);
+  }
+
+  &.react-dnd {
+    background: linear-gradient(to bottom right, #ece806e3, #ea2f16d0);
+  }
+
+  &.mui {
+    background: linear-gradient(to bottom right, #1106ece3, #ea16e7d0);
+  }
+
+  &.framer-motion {
+    background: linear-gradient(to bottom right, #1106ece3, #16c3ead0);
+  }
+
+  &.mongodb {
+    background: linear-gradient(to bottom right, #38ec06e3, #047028d0);
+  }
+
+  &.cheerio {
+    background: linear-gradient(to bottom right, #38ec06e3, #047028d0);
+  }
+
+  &.puppeteer {
+    background: linear-gradient(to bottom right, #38ec06e3, #706b04d0);
   }
 }
