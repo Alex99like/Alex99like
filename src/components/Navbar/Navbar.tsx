@@ -10,8 +10,8 @@ const links = [
   { link: '/', icon: FcHome },
   { link: '/skills', icon: FcEngineering },
   { link: '/education', icon: FcGraduationCap },
-  { link: '/projects', icon: FcAbout },
-  { link: '/message', icon: FcEditImage },
+  { link: '/projects', icon: FcEditImage },
+  { link: '/message', icon: FcAbout },
 ]
 
 export const Navbar = () => {
