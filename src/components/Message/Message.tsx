@@ -6,6 +6,7 @@ import { AiTwotonePhone } from 'react-icons/ai'
 import styles from './Message.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Field } from './forms/Field/Field'
+import { motion } from 'framer-motion'
 
 import { BsMessenger } from 'react-icons/bs'
 import { RiAccountPinBoxFill } from 'react-icons/ri'
@@ -40,37 +41,61 @@ export const Message = () => {
         <h3 className={styles.cont}>CONTACTS <FcFaq className={styles.icon} /></h3>
       </div>
       <div className={styles.wrap}>
-        <ul className={styles.links}>
+        <div className={styles['wrap-links']}>
           <div className={styles.info}>
             <h3 className={styles.title}>You can contact me </h3>
             <h3 className={styles.now}>RIGHT NOW!</h3>
           </div>
-          <li className={styles.link}>
+          <ul className={styles.links}>
+          
+          <motion.li className={styles.link}
+            initial={{ x: -500 }}
+            animate={{ x: 0, rotate: '15deg' }}
+            transition={{ delay: 0.3 }}
+          >
             <a href='/'><FaTelegram className={styles.icon} />
               <span>Telegram</span>
             </a>
-          </li>
-          <li className={styles.link}>
+          </motion.li>
+          <motion.li className={styles.link}
+            initial={{ x: -500 }}
+            animate={{ x: 0, rotate: '15deg' }}
+            transition={{ delay: 0.4 }}
+          >
             <a href='/'><FaLinkedin className={styles.icon} />
               <span>Linkedin</span>
             </a>
-          </li>
-          <li className={styles.link}>
+          </motion.li>
+          <motion.li className={styles.link}
+            initial={{ x: -500 }}
+            animate={{ x: 0, rotate: '15deg' }}
+            transition={{ delay: 0.5 }}
+          >
             <a href='/'><FaFacebookSquare className={styles.icon} />
               <span>FaceBook</span>
             </a>
-          </li>
-          <li className={styles.link}>
+          </motion.li>
+          <motion.li className={styles.link}
+            initial={{ x: -500 }}
+            animate={{ x: 0, rotate: '15deg' }}
+            transition={{ delay: 0.6 }}
+          >
             <a href='/'><SiGmail className={styles.icon} />
              <span>GMAIL</span>
             </a>
-          </li>
-          <li className={styles.link}>
+          </motion.li>
+          <motion.li className={styles.link}
+            initial={{ x: -500 }}
+            animate={{ x: 0, rotate: '15deg' }}
+            transition={{ delay: 0.7 }}
+          >
             <a href='/'><AiTwotonePhone className={styles.icon} />
               <span>Phone</span>
             </a>
-          </li>
-        </ul>
+          </motion.li>
+          </ul>
+        </div>
+       
         <div className={styles['form-container']}>
           <div className={styles.info}>
             <h1 className={styles.title}>Send Message</h1>
