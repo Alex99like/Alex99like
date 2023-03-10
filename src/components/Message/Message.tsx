@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { FaFacebookSquare, FaLinkedin, FaTelegram } from 'react-icons/fa'
 import { FcFaq } from 'react-icons/fc'
 import { SiGmail } from 'react-icons/si'
@@ -7,11 +7,16 @@ import styles from './Message.module.scss'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { Field } from './forms/Field/Field'
 import { motion } from 'framer-motion'
+import Lottie from "lottie-react";
 
 import { BsMessenger } from 'react-icons/bs'
 import { RiAccountPinBoxFill } from 'react-icons/ri'
 import { BsBuilding } from 'react-icons/bs'
 import { Area } from './forms/Area/Area'
+
+import Success from '../../assets/animation/success.json'
+
+import axios from 'axios'
 
 export interface IMessageForm {
   name: string
@@ -22,30 +27,54 @@ export interface IMessageForm {
 }
 
 export const Message = () => {
+  // const options = {
+  //   animationData: Success,
+  //   loop: true
+  // };
+
+  // const { View } = useLottie(options)
+
+  const [loader, setLoader] = useState<boolean>(false);
 
   const { 
     formState: { errors }, 
     register,
     getValues,
     handleSubmit
-  } = useForm<IMessageForm>()
+  } = useForm<IMessageForm>({
+    mode: 'onChange'
+  })
 
-  const onSubmit: SubmitHandler<IMessageForm> = (data) => {
-    console.log(data)
+  const onSubmit: SubmitHandler<IMessageForm> = async (data) => {
+    try {
+      setLoader(true)
+      await axios.post('https://server-cv.onrender.com', data)
+      setLoader(false)
+    } catch(e) {
+      setLoader(false)
+      console.log(e)
+    }
   };
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
+      <motion.div className={styles.title}
+        initial={{ y: -200, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+      >
         <h3 className={styles.this}>This is my, </h3>
         <h3 className={styles.cont}>CONTACTS <FcFaq className={styles.icon} /></h3>
-      </div>
+      </motion.div>
       <div className={styles.wrap}>
         <div className={styles['wrap-links']}>
-          <div className={styles.info}>
+          <motion.div className={styles.info}
+            initial={{ y: 200, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
             <h3 className={styles.title}>You can contact me </h3>
             <h3 className={styles.now}>RIGHT NOW!</h3>
-          </div>
+          </motion.div>
           <ul className={styles.links}>
           
           <motion.li className={styles.link}
@@ -53,7 +82,7 @@ export const Message = () => {
             animate={{ x: 0, rotate: '15deg' }}
             transition={{ delay: 0.3 }}
           >
-            <a href='/'><FaTelegram className={styles.icon} />
+            <a target={'_blank'} rel="noreferrer" href='https://msngr.link/tg/@Aleksander_like'><FaTelegram className={styles.icon} />
               <span>Telegram</span>
             </a>
           </motion.li>
@@ -62,7 +91,7 @@ export const Message = () => {
             animate={{ x: 0, rotate: '15deg' }}
             transition={{ delay: 0.4 }}
           >
-            <a href='/'><FaLinkedin className={styles.icon} />
+            <a target={'_blank'} rel="noreferrer" href='https://www.linkedin.com/in/%D0%B0%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80-%D0%B0%D0%BB%D0%B5%D0%BA%D1%81%D0%B8%D0%B5%D0%B2%D0%B8%D1%87-485120208/'><FaLinkedin className={styles.icon} />
               <span>Linkedin</span>
             </a>
           </motion.li>
@@ -71,7 +100,7 @@ export const Message = () => {
             animate={{ x: 0, rotate: '15deg' }}
             transition={{ delay: 0.5 }}
           >
-            <a href='/'><FaFacebookSquare className={styles.icon} />
+            <a target={'_blank'} rel="noreferrer" href='https://www.facebook.com/profile.php?id=100041718375661'><FaFacebookSquare className={styles.icon} />
               <span>FaceBook</span>
             </a>
           </motion.li>
@@ -80,7 +109,7 @@ export const Message = () => {
             animate={{ x: 0, rotate: '15deg' }}
             transition={{ delay: 0.6 }}
           >
-            <a href='/'><SiGmail className={styles.icon} />
+            <a target={'_blank'} rel="noreferrer" href='mailto:aleksievisa@gmail.com'><SiGmail className={styles.icon} />
              <span>GMAIL</span>
             </a>
           </motion.li>
@@ -89,7 +118,7 @@ export const Message = () => {
             animate={{ x: 0, rotate: '15deg' }}
             transition={{ delay: 0.7 }}
           >
-            <a href='/'><AiTwotonePhone className={styles.icon} />
+            <a href='tel:+375333527815'><AiTwotonePhone className={styles.icon} />
               <span>Phone</span>
             </a>
           </motion.li>
@@ -98,43 +127,57 @@ export const Message = () => {
        
         <div className={styles['form-container']}>
           <div className={styles.info}>
-            <h1 className={styles.title}>Send Message</h1>
-            <p className={styles.message}>Send me a message and I will contact you myself)</p>
+            <motion.h1 className={styles.title}
+              initial={{ x: '100vw', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >Send Message</motion.h1>
+            <motion.p className={styles.message}
+              initial={{ x: '100vw', opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ delay: 0.6 }}
+            >Send me a message and I will contact you myself)</motion.p>
           </div>
 
-          <form onSubmit={handleSubmit(onSubmit)} className={styles.form}>
+          <motion.form onSubmit={handleSubmit(onSubmit)} className={styles.form}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.3 }}
+          >
+            {loader && (
+              <div className={styles.loader}>
+                <Lottie animationData={Success} className={styles.success} />
+              </div>
+            )}
             <div className={styles['one-line']}>
               <Field 
                 {...register('name', {
-                  required: 'Name is required',
-                  pattern: {
-                    value: /dw/,
-                    message: 'Please enter a valid name',
-                  },
+                  minLength: { value: 3, message: 'The minimum length of the name is 3 characters' },
+                  maxLength: { value: 20, message: 'The maximum length of the name is 20 characters' }
                 })}
                 Icon={RiAccountPinBoxFill}
                 placeholder="Your Name"
                 error={errors.name}
+                delay={0.4}
                 getValue={{ get: getValues, name: 'name' }}
               />
               <Field 
                 {...register('phone', {
-                  required: 'Name is required',
                   pattern: {
-                    value: /dw/,
+                    value: /^\+375\s?(25|29|33|44)\s?\d{7}$/,
                     message: 'Your Number Phone',
                   },
                 })}
                 Icon={AiTwotonePhone}
                 placeholder="Your Number Phone"
-                error={errors.name}
+                error={errors.phone}
+                delay={0.5}
                 getValue={{ get: getValues, name: 'phone' }}
               />
             </div>
 
             <Field 
                 {...register('contact', {
-                  required: 'Name is required',
                   pattern: {
                     value: /dw/,
                     message: 'Your Number Phone',
@@ -142,40 +185,49 @@ export const Message = () => {
                 })}
                 Icon={BsMessenger}
                 placeholder="Your Account Messenger"
-                error={errors.name}
+                error={errors.contact}
+                delay={0.6}
                 getValue={{ get: getValues, name: 'contact' }}
               />
 
               <Field 
                 {...register('nameCompany', {
-                  required: 'Name is required',
                   pattern: {
-                    value: /dw/,
+                    value: /^[a-zA-Zа-яА-ЯёЁ']{3,20}$/,
                     message: 'Your Number Phone',
                   },
                 })}
                 Icon={BsBuilding}
                 placeholder="Your Company Name"
-                error={errors.name}
+                error={errors.nameCompany}
+                delay={0.7}
                 getValue={{ get: getValues, name: 'nameCompany' }}
               />
               <Area 
                 {...register('description', {
-                  required: 'Name is required',
                   pattern: {
-                    value: /dw/,
+                    value: /^[a-zA-Zа-яА-ЯёЁ']{3,200}$/,
                     message: 'Your Number Phone',
                   },
                 })}
                 placeholder="Your Number Phone"
-                error={errors.name}
+                error={errors.description}
+                delay={0.8}
                 getValue={{ get: getValues, name: 'description' }}
               />
               <div className={styles.buttons}>
-                <button className={styles.reset}>RESET</button>
-                <button className={styles.send}>SEND</button>
+                <motion.button className={styles.reset}
+                  initial={{ opacity: 0, x: '100vw' }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.9 }}
+                >RESET</motion.button>
+                <motion.button className={styles.send}
+                  initial={{ opacity: 0, x: '-100vw' }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.9 }}
+                >SEND</motion.button>
               </div>
-          </form>
+          </motion.form>
         </div>
       </div>
     </div>

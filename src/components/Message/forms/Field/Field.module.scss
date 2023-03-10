@@ -3,6 +3,7 @@
 .container {
   display: flex;
   transition: 0.3s !important;
+  position: relative;
 
   width: 100%;
 
@@ -49,5 +50,17 @@
       top: 4px;
       left: 3px;
     }
+  }
+
+  .error {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    font-size: 13px;
+    border: 0.5px solid #9e2424a2;
+    background-color: #9e2424a2;
+    border-radius: 20px;
+    padding: 0 10px;
+    color: #fff;
   }
 }

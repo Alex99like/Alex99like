@@ -50,6 +50,10 @@
           -webkit-text-fill-color: rgb(222, 228, 232);
           text-shadow: 2px 2px 4px #64166c;
         }
+
+        @media (max-width: 680px) {
+          margin-top: 60px;
+        }
       }
 
       .prof {
@@ -208,7 +212,7 @@
   .image-container {
     position: relative;
     width: 50%;
-    height: 100%;
+    margin-bottom: auto;
     display: flex;
     justify-content: center;
     align-items: flex-start;

@@ -12,6 +12,7 @@ export interface IFieldProps {
  //getValueColumn?: { fn: UseFormGetValues<IFormColumn>; name: keyof IFormColumn };
  //getValueTask?: { fn: UseFormGetValues<IFormTask>; name: keyof IFormTask };
   error?: FieldError | undefined;
+  delay: number
 }
 
 export interface ITextAreaProps {
@@ -22,6 +23,7 @@ export interface ITextAreaProps {
  //getValueColumn?: { fn: UseFormGetValues<IFormColumn>; name: keyof IFormColumn };
  //getValueTask?: { fn: UseFormGetValues<IFormTask>; name: keyof IFormTask };
   error?: FieldError | undefined;
+  delay: number
 }
 
 type TypeInputPropsField = InputHTMLAttributes<HTMLInputElement> & IFieldProps;

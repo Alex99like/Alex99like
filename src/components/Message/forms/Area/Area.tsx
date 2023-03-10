@@ -1,18 +1,23 @@
 import React, { forwardRef } from 'react'
 import { IArea } from '../props.type'
 import styles from './Area.module.scss'
+import { motion } from 'framer-motion'
 
 export const Area = forwardRef<HTMLTextAreaElement, IArea>(({
-  placeholder, style, error, getValue, ...rest
+  placeholder, style, error, getValue, delay, ...rest
 }, ref) => {
   return (
-    <div className={styles.container}>
+    <motion.div className={styles.container}
+      initial={{ y: 10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.2, delay: delay }}
+    >
       <h3 className={styles.title}>Additional Information</h3>
       <textarea 
         ref={ref}
         className={styles.textarea}
         {...rest} 
       />
-    </div>
+    </motion.div>
   )
 })

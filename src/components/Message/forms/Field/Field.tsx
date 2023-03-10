@@ -2,9 +2,10 @@ import React, { forwardRef, useState } from 'react'
 import { IField } from '../props.type'
 import styles from './Field.module.scss'
 import cn from 'classnames'
+import { motion } from 'framer-motion'
 
 export const Field = forwardRef<HTMLInputElement, IField>(({
-  placeholder, Icon, style, error, getValue, type, ...rest
+  placeholder, Icon, style, error, getValue, type, delay, ...rest
 }, ref) => {
   const [onFocus, setOnFocus] = useState<boolean>(false)
 
@@ -16,7 +17,11 @@ export const Field = forwardRef<HTMLInputElement, IField>(({
   };
 
   return (
-    <div className={styles.container} style={style}>
+    <motion.div className={styles.container} style={style}
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.2, delay: delay }}
+    >
       <label className={styles.label} onChange={handlerFocus} onBlur={handlerFocus} onFocus={() => setOnFocus(true)}>
         <span className={cn({
           [styles.active]: onFocus
@@ -33,10 +38,14 @@ export const Field = forwardRef<HTMLInputElement, IField>(({
         />
       </label>
       {error && (
-        <div className={styles.error}>
+        <motion.div className={styles.error}
+          initial={{ opacity: 0, x: '100vw' }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3 }}
+        >
           {error.message}
-        </div>
+        </motion.div>
       )}
-    </div> 
+    </motion.div> 
   )
 })
