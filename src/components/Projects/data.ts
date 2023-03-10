@@ -4,16 +4,43 @@ import KBImage from '../../assets/projects/kanban.png'
 
 export interface IProject {
   mainImage: string
+  mobileImage: string
+  title: string
+  time: number
+  tags: string[]
 }
 
 export const projectData: Record<string, IProject> = {
   cv: {
-    mainImage: CVImage
+    mainImage: CVImage,
+    mobileImage: '',
+    title: 'CV Portfolio',
+    time: 7,
+    tags: [
+      'TypeScript', 'SCSS', 'React', 'Webpack', 
+      'Framer Motion', 'React Hook Form', 'Lottie React',
+      'React Router Dom', 'Axios', 'Node', 'Express', 'Telegram Api Bot'
+    ]
   },
   rslang: {
-    mainImage: RSImage
+    mainImage: RSImage,
+    mobileImage: '',
+    title: 'RS Lang',
+    time: 28,
+    tags: [
+      'TypeScript', 'SCSS', 'Webpack', 'ChartJS', 'Node', 
+      'Express', 'MongoDB'
+    ]
   },
   kanban: {
-    mainImage: KBImage
+    mainImage: KBImage,
+    mobileImage: '',
+    title: 'Taskero Board',
+    time: 21,
+    tags: [
+      'TypeScript', 'SCSS', 'React', 'React Hook Form', 'React DnD',
+      'Redux', 'Redux Toolkit Query', 'Lottie React', 'i18next', 'MUI',
+      'Node', 'NestJS', 'PostgreSQL'
+    ]
   }
 }

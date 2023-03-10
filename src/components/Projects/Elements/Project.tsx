@@ -1,7 +1,8 @@
-import React, { FC, useEffect, useRef } from 'react'
+import React, { FC } from 'react'
 import { IProject } from '../data'
 import styles from './Project.module.scss'
-import { useTransform, MotionValue, useScroll, motion, useMotionValueEvent } from 'framer-motion'
+import { motion } from 'framer-motion'
+import cn from 'classnames'
 
 export interface IProjectProps {
   item: IProject
@@ -9,23 +10,49 @@ export interface IProjectProps {
 }
 
 export const Project: FC<IProjectProps> = ({ item, idx }) => {
-  const ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    console.log(ref.current!.offsetTop)
-  }, [])
 
   return (
-    <section className={styles.section} ref={ref}>
-      <motion.div
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 2 }}
-        viewport={{ amount: 0.5 }}
-      >
-        <img className={styles.img} src={item.mainImage} alt="A London skyscraper" />
+    <section className={styles.section}>
+      <motion.div className={styles.container}>
+        <div className={styles['container-img']}>
+          <motion.h3 className={styles.title}
+            initial={{ opacity: 0, x: 200, zIndex: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.3 }}
+            viewport={{ amount: 0.5 }}
+          >{item.title}</motion.h3>
+          <motion.h3 className={styles.days}
+            initial={{ opacity: 0, x: 100 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3, delay: 0.7 }}
+            viewport={{ amount: 0.5 }}
+          >
+            {item.time} DAYS
+          </motion.h3>
+          <motion.img className={styles.img} src={item.mainImage} alt="" 
+            initial={{ opacity: 0, x: 200 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.3 }}
+            viewport={{ amount: 0.5 }}
+          />
+        </div>
+        <motion.fieldset className={styles.tags}
+          initial={{ opacity: 0, x: -300 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.3, delay: 0.5 }}
+          viewport={{ amount: 0.5 }}
+        >
+          <legend>Technologies Used</legend>
+          {item.tags.map((tag, idx) => (
+            <motion.span
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }} 
+              transition={{ duration: 0.1 , delay: 0.5  + idx / 20 }}
+              key={tag} 
+              className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</motion.span>
+          ))}
+        </motion.fieldset>
       </motion.div>
-      {/* <motion.h2 style={{ y }}>{`#00${idx + 1}`}</motion.h2> */}
     </section>
   )
 }
