@@ -1,4 +1,4 @@
-import { useState, useEffect, FC } from 'react'
+import { useState, useEffect, FC, useLayoutEffect } from 'react'
 import { calcDate, dateNow } from '../../../utils/calcData'
 import { motion } from 'framer-motion'
 import styles from './VerticalEducation.module.scss'
@@ -23,7 +23,7 @@ const setting = {
 export const VerticalEducation: FC<VerticalProp> = ({ callModal }) => {
   const [date, setDate] = useState(calcDate(startDate))
  
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (date && calcDate(date)) {
     setTimeout(() => {
       setDate(calcDate(date))
@@ -55,7 +55,7 @@ export const VerticalEducation: FC<VerticalProp> = ({ callModal }) => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', delay: 0.1, stiffness: 300 }}
-        >{date ? date.replaceAll('-', '.') : dateNow()}</motion.span>
+        >{date ? date.replaceAll('-', '.') : dateNow().replaceAll('-', '.')}</motion.span>
       </div>
     </div>
   )
