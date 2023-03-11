@@ -37,7 +37,7 @@ export const experiences: Record<string, IExperiences> = {
     modal: {
       jobTime: '08.17.2022 - 12.16.2022',
       description: 'Development in a team under the guidance of a mentor on the scrum methodology of duolingo and taskero clone clones, gained experience working together on large projects, used effective architectural solutions in practice, gained experience in the role of Team Lead',
-      tags: ['TypeScript', 'HTML', 'SCSS', 'React Testing Library', 'React DnD', 'MUI', 'React', 'Redux', 'React-Hooks-Form', 'WebPack']
+      tags: ['TypeScript', 'HTML', 'SCSS', 'React Testing Library', 'React DnD', 'MUI', 'React', 'Redux', 'React-Hook-Form', 'WebPack']
     }
   },
   freshBerry: { 

@@ -73,7 +73,7 @@ export const education: Record<string, IEducation> = {
       title: 'RS SCHOOL',
       performance: '100% / 100%',
       skills: [
-        'REACT', 'REDUX', 'Redux Toolkit', 'React Hooks Form',
+        'REACT', 'REDUX', 'Redux Toolkit', 'React Hook Form',
         'React Router DOM', 'CSR', 'SSR', 'SSG', 
         'React Testing Library', 'e2e Test', 'SOLID'
       ],
