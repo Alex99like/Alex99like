@@ -1,5 +1,5 @@
 import { useState, useEffect, FC } from 'react'
-import { calcDate } from '../../../utils/calcData'
+import { calcDate, dateNow } from '../../../utils/calcData'
 import { motion } from 'framer-motion'
 import styles from './VerticalEducation.module.scss'
 import { HorizontalLine } from './HorizontalLine/HorizontalLine'
@@ -55,7 +55,7 @@ export const VerticalEducation: FC<VerticalProp> = ({ callModal }) => {
           initial={{ scale: 0, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           transition={{ type: 'spring', delay: 0.1, stiffness: 300 }}
-        >{date?.replaceAll('-', '.')}</motion.span>
+        >{date ? date.replaceAll('-', '.') : dateNow()}</motion.span>
       </div>
     </div>
   )

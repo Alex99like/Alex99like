@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import React, { FC, useEffect, useState } from 'react'
 import { experiences } from '../../../data/experiences'
-import { calcDate } from '../../../utils/calcData'
+import { calcDate, dateNow } from '../../../utils/calcData'
 import styles from './Experiences.module.scss'
 import { ExperiencesItem } from './ExperiencesItem/ExperiencesItem'
 import { HorizontalLine } from './HorizontalLine/HorizontalLine'
@@ -48,7 +48,7 @@ export const Experiences: FC<ExperiencesProp> = ({ callModal }) => {
           transition={{ duration: 5 }}
         >
         </motion.span>
-        <span className={styles.end}>{date?.replaceAll('-', '.')}</span>
+        <span className={styles.end}>{date ? date.replaceAll('-', '.') : dateNow()}</span>
       </div>
     </div>
   )

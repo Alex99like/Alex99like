@@ -23,6 +23,11 @@ export const calcDate = (date: string): string | null => {
   }
 }
 
+
+export const dateNow = () => {
+  return parseDate(Date.now())
+}
+
 //   if (prevDate < currentDate) {
     // const today = new Date(prevDate + 86400)
     // const year = today.getFullYear();
