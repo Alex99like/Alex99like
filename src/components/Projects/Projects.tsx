@@ -1,4 +1,4 @@
-import React, { LegacyRef, RefObject, useEffect, useRef } from 'react'
+import React, { useRef } from 'react'
 import styles from './Projects.module.scss'
 
 import { useScroll, useSpring, motion } from 'framer-motion'

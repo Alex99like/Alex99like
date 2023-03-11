@@ -10,7 +10,7 @@ import { AppContextProvider } from '../../providers/EducationProvider'
 
 
 export const Education = () => {
-  const [mobile, setMobile] = useState(false)
+  const [mobile, setMobile] = useState(true)
   const [switchBtn, setSwitchBtn] = useState<'education' | 'experience'>('education')
   const [activeModal, setActiveModal] = useState(false)
 
@@ -23,6 +23,10 @@ export const Education = () => {
   }
   
   useEffect(() => {
+    if (window.innerWidth < 800) {
+      setMobile(false)
+    }
+
     const handleResize = () => {
       if (window.innerWidth < 800) {
         setMobile(false)

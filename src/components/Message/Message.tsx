@@ -40,7 +40,8 @@ export const Message = () => {
     formState: { errors }, 
     register,
     getValues,
-    handleSubmit
+    handleSubmit,
+    reset
   } = useForm<IMessageForm>({
     mode: 'onChange'
   })
@@ -55,6 +56,10 @@ export const Message = () => {
       console.log(e)
     }
   };
+
+  const onReset = () => {
+    reset()
+  }
 
   return (
     <div className={styles.container}>
@@ -152,8 +157,8 @@ export const Message = () => {
             <div className={styles['one-line']}>
               <Field 
                 {...register('name', {
-                  minLength: { value: 3, message: 'The minimum length of the name is 3 characters' },
-                  maxLength: { value: 20, message: 'The maximum length of the name is 20 characters' }
+                  minLength: { value: 3, message: 'Minimum 3 characters' },
+                  maxLength: { value: 20, message: 'Maximum 20 characters' }
                 })}
                 Icon={RiAccountPinBoxFill}
                 placeholder="Your Name"
@@ -165,7 +170,7 @@ export const Message = () => {
                 {...register('phone', {
                   pattern: {
                     value: /^\+375\s?(25|29|33|44)\s?\d{7}$/,
-                    message: 'Your Number Phone',
+                    message: 'Format +375(xx)xxxxxxx',
                   },
                 })}
                 Icon={AiTwotonePhone}
@@ -178,10 +183,8 @@ export const Message = () => {
 
             <Field 
                 {...register('contact', {
-                  pattern: {
-                    value: /dw/,
-                    message: 'Your Number Phone',
-                  },
+                  minLength: { value: 3, message: 'Minimum 3 characters' },
+                  maxLength: { value: 200, message: 'Maximum 200 characters' }
                 })}
                 Icon={BsMessenger}
                 placeholder="Your Account Messenger"
@@ -193,8 +196,8 @@ export const Message = () => {
               <Field 
                 {...register('nameCompany', {
                   pattern: {
-                    value: /^[a-zA-Zа-яА-ЯёЁ']{3,20}$/,
-                    message: 'Your Number Phone',
+                    value: /^[a-zA-Zа-яА-ЯёЁ']{3,50}$/,
+                    message: 'No valid name company',
                   },
                 })}
                 Icon={BsBuilding}
@@ -205,10 +208,8 @@ export const Message = () => {
               />
               <Area 
                 {...register('description', {
-                  pattern: {
-                    value: /^[a-zA-Zа-яА-ЯёЁ']{3,200}$/,
-                    message: 'Your Number Phone',
-                  },
+                  minLength: { value: 3, message: 'Minimum 3 characters' },
+                  maxLength: { value: 300, message: 'Maximum 300 characters' }
                 })}
                 placeholder="Your Number Phone"
                 error={errors.description}
@@ -220,11 +221,14 @@ export const Message = () => {
                   initial={{ opacity: 0, x: '100vw' }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.9 }}
+                  type={'reset'}
+                  onClick={onReset}
                 >RESET</motion.button>
                 <motion.button className={styles.send}
                   initial={{ opacity: 0, x: '-100vw' }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.9 }}
+                  type={'submit'}
                 >SEND</motion.button>
               </div>
           </motion.form>

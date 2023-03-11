@@ -22,7 +22,11 @@ export const Field = forwardRef<HTMLInputElement, IField>(({
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.2, delay: delay }}
     >
-      <label className={styles.label} onChange={handlerFocus} onBlur={handlerFocus} onFocus={() => setOnFocus(true)}>
+      <label className={styles.label} 
+        onChange={handlerFocus} 
+        onBlur={handlerFocus} 
+        onFocus={() => setOnFocus(true)}
+      >
         <span className={cn({
           [styles.active]: onFocus
         })}>

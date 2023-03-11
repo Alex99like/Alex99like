@@ -1,6 +1,7 @@
 import JavaRush from '../assets/image-ee/javarush.png'
 import RssPre from '../assets/image-ee/pre-rss.png'
 import RssQ1 from '../assets/image-ee/rss-q1.png'
+import RssQ4 from '../assets/image-ee/rss-q4.png'
 import RssReact from '../assets/image-ee/react.png'
 
 export interface IEducation {
@@ -84,7 +85,7 @@ export const education: Record<string, IEducation> = {
     time: 3,
     class: 'rss-node',
     modal: {
-      image: RssQ1,
+      image: RssQ4,
       title: 'RS SCHOOL',
       performance: '99% / 100%',
       skills: [

@@ -18,6 +18,11 @@ export const Area = forwardRef<HTMLTextAreaElement, IArea>(({
         className={styles.textarea}
         {...rest} 
       />
+      {error?.message && <motion.div className={styles.error}
+        initial={{ opacity: 0, x: '100vw' }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.3 }}
+      >{error.message}</motion.div>}
     </motion.div>
   )
 })

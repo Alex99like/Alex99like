@@ -3,6 +3,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   .title {
     font-size: 26px;
@@ -24,5 +25,17 @@
     border: 1px solid #90179d4a;
     resize: none;
     background-color: $dark-bg;
+  }
+
+  .error {
+    position: absolute;
+    top: 16px;
+    right: 0;
+    font-size: 13px;
+    border: 0.5px solid #9e2424a2;
+    background-color: #9e2424a2;
+    border-radius: 20px;
+    padding: 0 10px;
+    color: #fff;
   }
 }

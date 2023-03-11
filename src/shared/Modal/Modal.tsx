@@ -31,7 +31,7 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
       <motion.div className={styles.modal}
         initial={{ scale: 0, y: 300 }}
         animate={{ scale: 1, y: 0 }}
-        exit={{ scale: 0, y: -900 }}
+        exit={{ scale: 0, y: -200 }}
         transition={{  type: 'spring', stiffness: 100 }}
         onClick={(e) => {e.stopPropagation()}}
       >
@@ -50,7 +50,7 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
             </p>
             <div className={styles.tags}>
               {item.modal.skills.map((tag) => (
-                <span className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</span>
+                <span key={tag} className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</span>
               ))}
             </div>
           </>
@@ -73,7 +73,7 @@ export const Modal: FC<ModalProp> = ({ closeModal }) => {
               </p>
               <div className={styles['exp-tags']}>
                 {item?.modal.tags.map((tag) => (
-                  <span className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</span>
+                  <span key={tag} className={cn(styles.tag, styles[tag.toLowerCase().replaceAll(' ', '-')])}>{tag}</span>
                 ))}
               </div>
             </div>
