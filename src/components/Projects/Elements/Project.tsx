@@ -10,7 +10,7 @@ export interface IProjectProps {
 }
 
 export const Project: FC<IProjectProps> = ({ item, idx }) => {
-  const [mobile, setMobile] = useState(false)
+  const [mobile, setMobile] = useState(true)
 
   useEffect(() => {
     const handleResize = () => {
@@ -51,9 +51,8 @@ export const Project: FC<IProjectProps> = ({ item, idx }) => {
           >
             {item.time} DAYS
           </motion.h3>
-          <motion.img className={styles.img} src={mobile ? item.mainImage : item.mobileImage} alt="" 
-           
-          />
+          {mobile && <motion.img className={styles.img} src={item.mainImage} alt="" />}
+          {!mobile && <motion.img className={styles.img} src={item.mobileImage} alt="" />}
         </motion.div>
         <motion.fieldset className={styles.tags}
           initial={{ opacity: 0, y: -300 }}
