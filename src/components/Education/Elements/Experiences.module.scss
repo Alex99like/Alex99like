@@ -11,6 +11,10 @@
   justify-content: flex-start;
   flex-direction: column;
 
+  @media (max-width: 390px) {
+    transform: scale(0.9) translateY(-30px);
+  }
+
 /////////////////////!!!!!!!!!!!!!!/////////
   .mainLine {
     height: 100%;

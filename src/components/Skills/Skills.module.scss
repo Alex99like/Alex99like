@@ -163,6 +163,10 @@
         height: 170px;
         border-radius: 20px;
 
+        @media (max-width: 390px) {
+          width: 140px;
+        }
+
         .project {
           position: absolute;
           display: flex;

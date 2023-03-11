@@ -34,6 +34,11 @@
     cursor: pointer;
     transition: all .2s;
 
+    @media (max-width: 390px) {
+      width: 150px;
+      font-size: 20px
+    }
+
     &:hover {
       box-shadow: -2px 2px 3px 2px #a829b9d2;
       text-shadow: 2px 2px #bc22d0eb;

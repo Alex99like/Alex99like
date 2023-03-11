@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import React, { FC, useEffect, useLayoutEffect, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import { experiences } from '../../../data/experiences'
 import { calcDate, dateNow } from '../../../utils/calcData'
 import styles from './Experiences.module.scss'
@@ -24,7 +24,7 @@ const startDate = '02-25-2022'
 export const Experiences: FC<ExperiencesProp> = ({ callModal }) => {
   const [date, setDate] = useState(calcDate(startDate))
  
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (date && calcDate(date)) {
     setTimeout(() => {
       setDate(calcDate(date))

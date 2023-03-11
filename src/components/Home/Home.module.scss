@@ -54,6 +54,10 @@
         @media (max-width: 680px) {
           margin-top: 60px;
         }
+
+        @media (max-height: 720px) {
+          margin-top: 0px;
+        }
       }
 
       .prof {
@@ -144,6 +148,10 @@
         margin-left: 0px;
       }
 
+      @media (max-height: 720px) {
+        margin-top: 10px;
+      }
+
       .first-name {
         background: linear-gradient(45deg, #64166c 33%, #5a0d76 66%, #8AA9D6);
         background-clip: text;
@@ -179,6 +187,10 @@
 
       @media (max-width: 1260px) {
         font-size: 20px;
+      }
+
+      @media (max-height: 720px) {
+        margin-top: 20px;
       }
 
       .link {
