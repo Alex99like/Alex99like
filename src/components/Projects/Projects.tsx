@@ -21,6 +21,12 @@ export const Projects = () => {
       {Object.values(projectData).map((item, idx) => (
         <Project item={item} key={idx} idx={idx} />
       ))}
+      <div className={styles.warning}>
+        <motion.h3
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+        >Other Projects Will Be Added Soon)))</motion.h3>
+      </div>
     </div>
   )
 }
