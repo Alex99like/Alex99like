@@ -27,6 +27,11 @@
       padding: 5px 15px;
       color: #fff;
       text-shadow: -2px 2px 1px #a208cd;
+
+      @media (max-width: 500px) {
+        font-size: 26px;
+        top: -25px;
+      }
     }
 
     .days {
@@ -40,17 +45,25 @@
       border-bottom-right-radius: 20px;
       font-size: 30px;
       padding: 7px 20px;
+
+      @media (max-width: 500px) {
+        font-size: 20px;
+      }
     }
 
     .container-img {
       position: relative;
-      width: 50%;
+      width: 100%;
       box-shadow: -2px 2px 2px 1px #a208cdb2;
       border: 1px solid #a208cdb2;
       border-radius: 20px;
-      min-width: 700px;
+      max-width: 700px;
       display: flex;
       justify-content: center;
+
+      @media (max-width: 500px) {
+        max-width: 330px;
+      }
 
       img {
         width: 100%;

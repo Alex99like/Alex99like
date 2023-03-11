@@ -1,6 +1,9 @@
 import CVImage from '../../assets/projects/cv.png'
 import RSImage from '../../assets/projects/rslang.png'
 import KBImage from '../../assets/projects/kanban.png'
+import CVImageMobile from '../../assets/projects/cv-mobile.png'
+import RSImageMobile from '../../assets/projects/rslang-mobile.png'
+import KBImageMobile from '../../assets/projects/mobile-taskero.png'
 
 export interface IProject {
   mainImage: string
@@ -13,7 +16,7 @@ export interface IProject {
 export const projectData: Record<string, IProject> = {
   cv: {
     mainImage: CVImage,
-    mobileImage: '',
+    mobileImage: CVImageMobile,
     title: 'CV Portfolio',
     time: 7,
     tags: [
@@ -24,7 +27,7 @@ export const projectData: Record<string, IProject> = {
   },
   rslang: {
     mainImage: RSImage,
-    mobileImage: '',
+    mobileImage: RSImageMobile,
     title: 'RS Lang',
     time: 28,
     tags: [
@@ -34,7 +37,7 @@ export const projectData: Record<string, IProject> = {
   },
   kanban: {
     mainImage: KBImage,
-    mobileImage: '',
+    mobileImage: KBImageMobile,
     title: 'Taskero Board',
     time: 21,
     tags: [
