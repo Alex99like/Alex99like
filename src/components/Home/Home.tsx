@@ -86,7 +86,7 @@ export const Home = () => {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: 0.9 }}
           >
-            <span className={styles.span}>2+ year</span> experience
+            <span className={styles.span}>1+ year</span> experience
           </motion.h4>
           <img src={Profile} alt={''} className={styles.img}/>
         </div>
