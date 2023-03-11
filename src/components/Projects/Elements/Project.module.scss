@@ -62,7 +62,7 @@
       justify-content: center;
 
       @media (max-width: 500px) {
-        max-width: 330px;
+        max-width: 250px;
       }
 
       img {
@@ -98,6 +98,10 @@
   color: #fff;
   padding: 3px 7px;
   border-radius: 5px;
+
+  @media (max-width: 500px) {
+    font-size: 12px;
+  }
 
   &.typescript {
     background: linear-gradient(to bottom right, #180d77a2, #1f2eba70);
