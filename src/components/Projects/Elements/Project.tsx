@@ -32,7 +32,7 @@ export const Project: FC<IProjectProps> = ({ item, idx }) => {
     <section className={styles.section}>
       <motion.div className={styles.container}>
         <motion.div className={styles['container-img']}
-          initial={{ opacity: 0, x: 200 }}
+          initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.3 }}
           viewport={{ amount: 0.5 }}
