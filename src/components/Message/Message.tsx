@@ -15,6 +15,7 @@ import { BsBuilding } from 'react-icons/bs'
 import { Area } from './forms/Area/Area'
 
 import Success from '../../assets/animation/success.json'
+import Loader from '../../assets/animation/loader.json'
 
 import axios from 'axios'
 
@@ -35,6 +36,7 @@ export const Message = () => {
   // const { View } = useLottie(options)
 
   const [loader, setLoader] = useState<boolean>(false);
+  const [success, setSuccess] = useState<boolean>(false)
 
   const { 
     formState: { errors }, 
@@ -51,6 +53,8 @@ export const Message = () => {
       setLoader(true)
       await axios.post('https://server-cv.onrender.com', data)
       setLoader(false)
+      setSuccess(true)
+      setTimeout(() => setSuccess(false), 1500)
     } catch(e) {
       setLoader(false)
       console.log(e)
@@ -151,7 +155,13 @@ export const Message = () => {
           >
             {loader && (
               <div className={styles.loader}>
-                <Lottie animationData={Success} className={styles.success} />
+                <Lottie animationData={Loader} className={styles.success} />
+              </div>
+            )}
+
+            {success && (
+              <div className={styles.loader}>
+                <Lottie loop={false} animationData={Success} className={styles.success} />
               </div>
             )}
             <div className={styles['one-line']}>
